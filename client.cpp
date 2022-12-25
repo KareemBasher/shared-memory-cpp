@@ -22,16 +22,23 @@ int main()
     }
 
     // Print out a message indicating that the even numbers are being printed
-    cout << "Even numbers received from the array:" << endl;
+    cout << "Even numbers received from the array: ";
+
+    bool foundEven = false;
 
     // Print out only the even numbers in the array
     for (int i = 0; i < 10; i++)
     {
         if (array[i] % 2 == 0)
         {
-            cout << array[i] << endl;
+            cout << array[i] << " ";
+            foundEven = true;
         }
     }
+
+    cout << endl;
+
+    if (!foundEven) cout << "Array does not contain even numbers" << endl;
 
     // Detach the shared memory segment from the address space of the process
     if (shmdt(array) == -1)
